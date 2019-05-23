@@ -1,4 +1,33 @@
 R5T.Organizational - Library containing organizational base types.
 
+
 Goals
 
+* Create base abstractions for both static and instantiable manipulation of organizations.
+
+
+Design
+
+Organization classes will provide most of their functionality via static properties and methods. This allows syntax like RivetOrganization.Name, or RivetOrganization.DirectoryName, etc. This static functionality can be declared anywhere, without the need for a common library.
+
+However, we might want to manipulate organization instances, for example:
+
+foreach(var organization in startups)
+{
+	...
+}
+
+In this case a common library defining interface and base class types is useful.
+
+Thus a class like RivetOrganization will be used in two ways:
+
+	* Statically - Provides data and functionality specific to an organziation.
+	* Instantiably - Allows client code to manipulate individual organization instances.
+
+An organization like RivetOrganization will derive from R5T.Organization.OrganizationBase. Define static properties like Name and DirectoryName. Use these static properties in a constructor to feed the OrganizationBase constructor.
+
+The required properties of the base type constructor provides inspiration for what static properties an organization class should provide.
+
+For an example, see ExampleOrganization.
+
+In addition, a general Organization class is provided that allows creating organization instances without defining a derived organization type.
