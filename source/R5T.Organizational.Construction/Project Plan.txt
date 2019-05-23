@@ -1,0 +1,4 @@
+R5T.Organizational.Construction - A construction console entry-point for the R5T.Organizational library (Library containing organizational base types.).
+
+Goals
+
